@@ -1,0 +1,67 @@
+input.onButtonPressed(Button.B, function () {
+    selected = true
+    radio.sendNumber(myHand)
+})
+radio.onReceivedNumber(function (receivedNumber) {
+    received = true
+    OppHand = receivedNumber
+})
+input.onGesture(Gesture.Shake, function () {
+    myHand = Math.randomRange(0, 2)
+    if (myHand == 0) {
+        basic.showLeds(`
+            . . . . .
+            . # # # .
+            . # # # .
+            . # # # .
+            . . . . .
+            `)
+    } else if (myHand == 1) {
+        basic.showLeds(`
+            # # # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # # # # #
+            `)
+    } else {
+        basic.showLeds(`
+            # # . . #
+            # # . # .
+            . . # . .
+            # # . # .
+            # # . . #
+            `)
+    }
+})
+let OppHand = 0
+let received = false
+let myHand = 0
+let selected = false
+radio.setGroup(22)
+basic.showIcon(IconNames.Diamond)
+basic.forever(function () {
+    if (selected == true && received == true) {
+        selected = false
+        received = false
+        if (myHand == OppHand) {
+            basic.showIcon(IconNames.Surprised)
+        } else {
+            if (myHand == 0 && OppHand == 1) {
+                basic.showIcon(IconNames.Sad)
+            } else if (myHand == 0 && OppHand == 2) {
+                basic.showIcon(IconNames.Happy)
+            } else if (myHand == 1 && OppHand == 0) {
+                basic.showIcon(IconNames.Happy)
+            } else if (myHand == 1 && OppHand == 2) {
+                basic.showIcon(IconNames.Sad)
+            } else if (myHand == 2 && OppHand == 0) {
+                basic.showIcon(IconNames.Sad)
+            } else if (myHand == 2 && OppHand == 1) {
+                basic.showIcon(IconNames.Happy)
+            } else if (OppHand == 1 && myHand == 2) {
+                basic.showIcon(IconNames.Sad)
+            }
+        }
+    }
+})
