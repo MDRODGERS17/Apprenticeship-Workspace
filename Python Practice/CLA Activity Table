@@ -1,0 +1,105 @@
+#16 students in a classroom
+
+#4 activity tables that sit 4 students each
+
+#enter python classroom.py "#" to call a student
+
+#if student's sentence isn't complete the student has not been assigned to an activity table
+
+import sys
+
+#accepting a command line argument in the 1 position
+
+arguments = (sys.argv[1])
+
+#Create a class called classroom with 4 var: name, chairs, activity, and materials
+
+class Student:
+
+    def __init__(self, name, chairsLeft, activity, materials):
+
+        self.name = name
+
+        self.chairsLeft = chairsLeft
+
+        self.activity = activity
+
+
+
+        self.materials = materials
+
+#created a method caled activityTable that prints out the name, activity, materials, and chairs left
+
+    def activityTable(self):
+
+        return 'Participant {} is located at the {} activity table with {} for materials. There are {} chairs remaining.'.format(self.name,self.activity,self.materials,self.chairsLeft)
+
+#Created a variable that contains the activity information for each student
+
+student = Student('Marissa',2,'Math','booklet')
+
+if arguments == "2":
+
+    student = Student('John Thomas',3,'Reading','book')
+
+if arguments == "3":
+
+    student = Student('Regina',3,'Art','canvas and paint')
+
+if arguments == "4":
+
+    student = Student('Dewayne',3,'Computer','laptop')
+
+if arguments == "5":
+
+    student = Student('Jairl',2,'Math','booklet')
+
+if arguments == "6":
+
+    student = Student('Marie',3,'Computer','laptop')
+
+if arguments == "7":
+
+    student = Student('Justin',2,'Math','booklet')
+
+if arguments == "8":
+
+    student = Student('Rodney',3,'Art','canvas and paint')
+
+
+
+if arguments == "9":
+
+    student = Student('Brandon',3,'Reading','book')
+
+
+
+if arguments == "10":
+
+    student = Student('George',3,'Computer','laptop')
+
+if arguments == "11":
+
+    student = Student('Deborah',3,'Reading','book')
+
+if arguments == "12":
+
+    student = Student('Ashley',2,'Math','booklet')
+
+if arguments == "13":
+
+    student = Student('Carl',3,'Art','canvas and paint')
+
+if arguments == "14":
+
+    student = Student('LaQuandra','','','')
+
+if arguments == "15":
+
+    student = Student('Michael','','','')
+
+if arguments == "16":
+
+    student = Student('Dennis','','','')
+
+print(student.activityTable())
