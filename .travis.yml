@@ -4,4 +4,4 @@ python:
  - "nightly"
 install:
  - "pip install pytest"
-script: python -m pytest test/
+script: python -m pytest 
