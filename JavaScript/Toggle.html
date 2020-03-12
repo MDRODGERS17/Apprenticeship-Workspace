@@ -1,0 +1,26 @@
+<DOCTYPE html>
+    <html>
+        <head>
+            <title> Toggle Button Demo</title>
+        </head>
+        <body>
+         <button onclick="toggle()">Toggle</button>
+         <p id="test">Sample Test</p>
+         <script>
+            var toggled = false;
+            function toggle() {
+                if(!toggled) {
+                    toggled = true;
+                    document.getElementById("test").style.display = "none";
+                    return;
+                }
+                if(toggled) {
+                    toggled = false;
+                    document.getElementById("test").style.display = "block";
+                    return;
+                }
+            }        
+            </script>
+        </body>
+    </html>
+</DOCTYPE>
